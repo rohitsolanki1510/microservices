@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.crm.api.gateway&apos; to &apos;com.crm.role.management&apos;&#x0D;&#x0A;- Original project: &apos;RoleManagement&apos;&#x0D;&#x0A;- Original element: &apos;RoleManagement/src/main/java/com.crm.api.gateway&apos;&#x0D;&#x0A;- Renamed element: &apos;RoleManagement/src/main/java/com.crm.role.management&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.crm.api.gateway&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.crm.api.gateway" name="com.crm.role.management" qualified="false" references="true" stamp="1647280284443" textual="false" version="1.0"/>
+</session>

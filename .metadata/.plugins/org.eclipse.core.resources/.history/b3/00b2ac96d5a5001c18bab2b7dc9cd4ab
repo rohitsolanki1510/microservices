@@ -1,0 +1,5 @@
+package com.crm.usermanagement.model;
+
+public class LoginResponse {
+
+}

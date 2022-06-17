@@ -1,0 +1,11 @@
+package com.crm.usermanagement.model;
+
+public class Response {
+
+	private Object data;
+	
+	private String responseCode;
+	
+	private String responseDesciption;
+	
+}

@@ -1,0 +1,76 @@
+package com.crm.usermanagement.security;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.crm.usermanagement.model.LoginRequest;
+import com.crm.usermanagement.service.UserLoginService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
+public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+	@Autowired
+	UserLoginService UserLoginService;
+	
+	@Autowired
+	Environment env;
+	
+	@Override
+	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
+			throws AuthenticationException {
+		
+		try {
+			LoginRequest loginReq=new ObjectMapper().readValue(request.getInputStream(),LoginRequest.class);
+			return getAuthenticationManager().authenticate(new UsernamePasswordAuthenticationToken(
+					loginReq.getUserName(),	loginReq.getPassword(),new ArrayList<>()
+					));
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException();
+		}
+		
+	}
+
+	@Override
+	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
+			Authentication authResult) throws IOException, ServletException {
+
+		String username=((User)authResult.getPrincipal()).getUsername();
+		
+		//USer
+		
+		String token =Jwts.builder().
+				setSubject(username).
+				setExpiration(new Date(System.currentTimeMillis()+10000000)).
+				signWith(SignatureAlgorithm.HS512, "kombdikombdi").
+				compact();
+		
+		response.addHeader("Token", token);
+		response.addHeader("UserID", username);
+		
+	}
+
+	
+	
+	
+	
+	
+	
+}

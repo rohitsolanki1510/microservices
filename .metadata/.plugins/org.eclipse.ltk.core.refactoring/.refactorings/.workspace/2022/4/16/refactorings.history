@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Booking.com_ActualTest&apos;" deleteContents="false" description="Delete resource &apos;Booking.com_ActualTest&apos;" element1="/Booking.com_ActualTest" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1649677685255"/>&#x0A;<refactoring comment="Delete resource &apos;5e4e1281-469f-4b85-ba17-3318b995d7aa&apos;" deleteContents="false" description="Delete resource &apos;5e4e1281-469f-4b85-ba17-3318b995d7aa&apos;" element1="/5e4e1281-469f-4b85-ba17-3318b995d7aa" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1649678302877"/>
+</session>

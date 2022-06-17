@@ -1,0 +1,9 @@
+server.port=8222
+spring.application.name=config-server
+
+spring.cloud.config.server.git.uri=https://github.com/rohitsolanki1510/CRM
+spring.cloud.config.server.git.username=rohitsolanki1510@gmail.com
+spring.cloud.config.server.git.password=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
+spring.cloud.config.server.git.clone-on-start=true
+spring.cloud.config.server.git.default-label=main
+spring.cloud.config.server.git.ignore-local-ssh-settings=true

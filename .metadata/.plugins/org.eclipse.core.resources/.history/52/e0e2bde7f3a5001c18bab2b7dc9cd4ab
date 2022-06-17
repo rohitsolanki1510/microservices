@@ -1,0 +1,5 @@
+package com.crm.usermanagement.security;
+
+public class UserManagementSecurityConfig implements WebSecurityConfigurerAdapter{
+
+}

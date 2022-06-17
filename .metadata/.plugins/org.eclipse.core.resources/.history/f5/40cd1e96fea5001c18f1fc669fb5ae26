@@ -1,0 +1,36 @@
+package com.crm.usermanagement.security;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.crm.usermanagement.model.LoginRequest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
+	@Override
+	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
+			throws AuthenticationException {
+		
+		try {
+			LoginRequest loginReq=new ObjectMapper().readValue(request.getInputStream(),LoginRequest.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return super.attemptAuthentication(request, response);
+	}
+
+	
+	
+	
+	
+}
